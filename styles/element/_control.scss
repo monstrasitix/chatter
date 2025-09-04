@@ -1,0 +1,48 @@
+@use "../abstract/spacing";
+@use "../abstract/color";
+@use "../abstract/border";
+
+.control {
+  position: relative;
+
+  &-label {
+    display: block;
+    font-size: 0.9rem;
+    color: color.$on-secondary;
+    margin-bottom: spacing.$rem-1;
+  }
+
+  &-input {
+    display: block;
+    width: 100%;
+    padding: spacing.$em-2 spacing.$em-4;
+
+    border: 1px solid color.$surface-secondary;
+    border-radius: border.$radius-small;
+    outline: none;
+    background-color: color.$on-primary;
+
+    &:focus {
+      box-shadow: 0 0 5px color.$primary;
+    }
+  }
+
+  &.-error {
+    .control-input {
+      border-color: color.$danger;
+      box-shadow: 0 0 5px color.$danger;
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  font-size: 0.8rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  background-color: white;
+  border: 1px solid silver;
+  left: 2rem;
+}

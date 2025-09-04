@@ -1,0 +1,28 @@
+@use "../abstract/color";
+@use "../abstract/spacing";
+
+.jumbotron {
+  text-align: center;
+
+  &-section {
+    & + & {
+      margin-top: spacing.$rem-6;
+    }
+  }
+
+  &-header {
+    margin-bottom: spacing.$rem-6;
+    color: color.$on-secondary;
+  }
+
+  &-paragraph {
+    line-height: spacing.$rem-4;
+    color: color.$on-secondary;
+  }
+
+  &-welcomes {
+    display: grid;
+    gap: spacing.$rem-5;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

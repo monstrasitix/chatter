@@ -1,0 +1,22 @@
+@use "../abstract/spacing";
+@use "../abstract/color";
+
+.sidebar {
+  &-heading {
+    color: color.$on-secondary;
+    padding: spacing.$em-2;
+    margin-bottom: spacing.$rem-2;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  &-section {
+    padding: 0 spacing.$em-4;
+
+    &.-gap,
+    & + & {
+      margin-top: spacing.$rem-4;
+    }
+  }
+}

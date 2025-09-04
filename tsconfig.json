@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "exclude": ["./node_modules"],
+  "references": [
+    { "path": "./tsconfig.webpack.json" },
+    { "path": "./tsconfig.browser.json" }
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force"
+  }
+}

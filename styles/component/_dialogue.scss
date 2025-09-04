@@ -1,0 +1,40 @@
+@use "../abstract/color";
+@use "../abstract/spacing";
+@use "../abstract/border";
+@use "../abstract/media";
+
+.dialogue {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: spacing.$rem-6;
+
+  &-item {
+    line-height: spacing.$rem-4;
+    color: color.$on-secondary;
+
+    &.-user {
+      width: 100%;
+      padding: spacing.$em-3;
+      border-radius: border.$radius;
+      border-bottom-right-radius: 0;
+      background-color: color.$surface-secondary;
+      align-self: flex-end;
+
+      @media #{media.$desktop-down} {
+        max-width: 70%;
+        width: auto;
+      }
+    }
+
+    &.-ai {
+      align-self: flex-start;
+    }
+
+    & + & {
+      margin-top: spacing.$rem-6;
+    }
+  }
+}

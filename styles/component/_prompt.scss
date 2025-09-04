@@ -1,0 +1,57 @@
+@use "../abstract/transition";
+@use "../abstract/spacing";
+@use "../abstract/color";
+@use "../abstract/media";
+@use "../abstract/border";
+
+.prompt {
+  background-color: color.$surface-secondary;
+  border-radius: border.$radius-small;
+  box-shadow: 0 0 5px color.$shadow;
+
+  &-options {
+    @include transition.ease-in(height);
+    background-color: color.$surface-secondary;
+    height: 0;
+    overflow: hidden;
+
+    &.-open {
+      height: auto;
+      padding: spacing.$rem-3;
+    }
+  }
+
+  &-input {
+    padding: spacing.$em-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color.$surface-secondary;
+
+    & > * {
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+
+    & > * + * {
+      margin-left: spacing.$rem-2;
+    }
+
+    @media #{media.$desktop-up} {
+      flex-direction: column;
+
+      & > * {
+        &:first-child {
+          width: 100%;
+        }
+      }
+
+      & > * + * {
+        margin-top: spacing.$rem-2;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+}

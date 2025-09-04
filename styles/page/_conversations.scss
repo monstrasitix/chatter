@@ -1,0 +1,17 @@
+@use "../abstract/spacing";
+
+.conversations {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &-dialogue {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &-prompt {
+    margin-bottom: spacing.$rem-5;
+  }
+}

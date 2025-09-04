@@ -1,0 +1,62 @@
+@use "../abstract/spacing";
+@use "../abstract/color";
+@use "../abstract/font";
+@use "../abstract/transition";
+@use "../abstract/border";
+
+.button {
+  @include transition.ease-in(background-color);
+
+  font-size: font.$control-size;
+  font-family: font.$control-family;
+
+  line-height: inherit;
+  outline: none;
+
+  padding: spacing.$em-2 spacing.$em-4;
+  text-overflow: hidden;
+
+  border: 0;
+  border-radius: border.$radius-small;
+
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+
+  cursor: pointer;
+
+  &.-icon > i {
+    margin-right: spacing.$rem-2;
+  }
+
+  &.-wide {
+    width: 100%;
+  }
+
+  &.-primary {
+    color: color.$on-primary;
+    background-color: color.$primary;
+
+    &:hover {
+      background-color: color.$primary-hover;
+    }
+
+    &:active {
+      background-color: color.$primary-active;
+    }
+  }
+
+  &.-secondary {
+    color: color.$on-secondary;
+    background-color: color.$secondary;
+
+    &:hover {
+      background-color: color.$secondary-hover;
+    }
+
+    &:active {
+      background-color: color.$secondary-active;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@mixin ease-in($properties...) {
+  transition-property: $properties;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in;
+}
+
+@mixin ease($properties...) {
+  transition-property: $properties;
+  transition-duration: 100ms;
+  transition-timing-function: ease;
+}

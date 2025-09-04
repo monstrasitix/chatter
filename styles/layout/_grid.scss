@@ -1,0 +1,26 @@
+@use "../abstract/spacing";
+@use "../abstract/media";
+
+.grid {
+  display: grid;
+
+  &.-gap-2 {
+    gap: spacing.$rem-2;
+  }
+
+  &.-gap-3 {
+    gap: spacing.$rem-3;
+  }
+
+  &.-gap-4 {
+    gap: spacing.$rem-4;
+  }
+
+  &.-columns-2 {
+    grid-template-columns: repeat(1, 1fr);
+
+    @media #{media.$desktop-down} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

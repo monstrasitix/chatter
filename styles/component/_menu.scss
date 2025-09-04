@@ -1,0 +1,35 @@
+@use "../abstract/color";
+@use "../abstract/spacing";
+@use "../abstract/transition";
+@use "../abstract/border";
+
+.menu {
+  padding: 0;
+  list-style-type: none;
+
+  &-item {
+    position: relative;
+  }
+
+  &-link {
+    @include transition.ease(background-color);
+    border-radius: border.$radius-small;
+
+    text-decoration: none;
+    display: block;
+    padding: spacing.$em-2;
+    color: color.$on-secondary;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+      background-color: color.$secondary-hover;
+    }
+
+    &:active {
+      background-color: color.$secondary-active;
+    }
+  }
+}

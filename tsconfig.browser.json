@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "commonjs",
+    "target": "es2023",
+    "lib": ["es2023", "DOM"],
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./source/*"]
+    }
+  },
+  "include": ["./source"]
+}

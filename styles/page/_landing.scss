@@ -1,0 +1,40 @@
+@use "../abstract/color";
+@use "../abstract/spacing";
+@use "../abstract/transition";
+
+.landing {
+  height: 100vh;
+  display: flex;
+
+  &-sidebar {
+    @include transition.ease-in(flex-basis);
+
+    flex-basis: 0;
+    background-color: color.$surface-secondary;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &.-open {
+      flex-basis: 300px;
+    }
+  }
+
+  &-main {
+    flex-grow: 1;
+    box-shadow: 0 0 5px 0 color.$shadow;
+    background-color: color.$surface-primary;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-navbar {
+    padding: spacing.$em-4;
+  }
+
+  &-room {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
