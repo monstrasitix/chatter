@@ -6,7 +6,7 @@ export interface Props {
   tokens: AuditToken[];
 }
 
-function RenderOne({ token }: { token: AuditToken }) {
+export function RenderOne({ token }: { token: AuditToken }) {
   switch (token.type) {
     case "headline":
       return <h2>{token.message}</h2>;
@@ -35,6 +35,7 @@ export function RenderToken({ tokens }: Props) {
 
         return () => clearTimeout(timeout);
       } else {
+        console.log("not found");
         const pause = setTimeout(() => {
           setCurrentToken((prev) => prev + 1);
           setDisplayedText("");

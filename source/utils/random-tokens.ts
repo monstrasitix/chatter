@@ -17,12 +17,31 @@ export function getRandomTokens(): AuditToken[] {
     ],
   };
 
-  return Array.from({ length: randomInteger(10, 3) }, () => {
-    const randomType = randomElement<"body" | "subhead">(["body", "subhead"])!;
-    return {
+  const subheads: AuditToken[] = Array.from(
+    { length: randomInteger(2, 1) },
+    () => ({
       id: randomUUID(),
-      type: randomType,
-      message: randomElement(values[randomType])!,
-    };
-  });
+      type: "subhead",
+      message: randomElement(values.subhead)!,
+    })
+  );
+
+  const bodies: AuditToken[] = Array.from(
+    { length: randomInteger(3, 1) },
+    () => ({
+      id: randomUUID(),
+      type: "body",
+      message: randomElement(values.body)!,
+    })
+  );
+
+  return [
+    {
+      id: randomUUID(),
+      type: "headline",
+      message: randomElement(values.subhead)!,
+    },
+    ...subheads,
+    ...bodies,
+  ];
 }

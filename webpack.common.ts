@@ -21,6 +21,7 @@ export function common(): Configuration {
       publicPath: "/",
       filename: "[name].bundle.js",
       path: root("./bundled"),
+      clean: true,
     },
     module: {
       rules: [

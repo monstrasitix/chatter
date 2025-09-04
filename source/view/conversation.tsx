@@ -2,7 +2,7 @@ import { clsx } from "clsx";
 import { lazy } from "react";
 import { useParams } from "react-router";
 
-import { RenderToken } from "@/component/render-token";
+import { RenderOne, RenderToken } from "@/component/render-token";
 
 import { useSingleConversation } from "@/hooks/conversations";
 
@@ -31,7 +31,7 @@ export default function Conversation() {
         <div className="container -medium">
           <div className="dialogue">
             {conversation.audit.length ? (
-              conversation.audit.map((audit) => {
+              conversation.audit.map((audit, index, collection) => {
                 return (
                   <div
                     key={audit.id}
@@ -41,9 +41,14 @@ export default function Conversation() {
                     })}
                   >
                     {audit.type === "user" && audit.message}
-                    {audit.type === "ai" && (
-                      <RenderToken tokens={audit.tokens} />
-                    )}
+                    {audit.type === "ai" &&
+                      (collection.length - 1 !== index ? (
+                        audit.tokens.map((token) => {
+                          return <RenderOne key={token.id} token={token} />;
+                        })
+                      ) : (
+                        <RenderToken tokens={audit.tokens} />
+                      ))}
                   </div>
                 );
               })
